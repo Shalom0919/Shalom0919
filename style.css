@@ -1,0 +1,429 @@
+/* 基本重置和全局样式 */
+:root {
+    --primary-color: #007bff; /* 主题颜色 - 蓝色 */
+    --secondary-color: #6c757d; /* 次要颜色 - 灰色 */
+    --background-color: #f8f9fa; /* 页面背景色 */
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+    --footer-bg: #343a40;
+    --footer-text: #f8f9fa;
+    --highlight-color: #ffc107; /* 强调色 - 黄色 */
+    --link-hover-color: #0056b3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* 平滑滚动 */
+}
+
+body {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden; /* 防止水平滚动条 */
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    overflow: hidden; /* 清除浮动 */
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2rem; padding-top: 2rem;}
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 0.8rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 头部和导航 */
+header {
+    background: var(--header-bg);
+    color: var(--text-color);
+    padding: 1rem 0;
+    position: fixed; /* 固定导航栏 */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+nav .logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+nav .nav-links li {
+    margin-left: 25px;
+}
+
+nav .nav-links a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a.active { /* 可以用 JS 添加 active 类 */
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+.burger {
+    display: none; /* 默认隐藏汉堡菜单 */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080.png?text=Hero+Background+Image') no-repeat center center/cover; /* 替换为你的背景图 */
+    color: #fff;
+    height: 100vh; /* 全屏高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 0; /* 覆盖 section 的默认 margin-top */
+}
+
+#hero .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+#hero .highlight {
+    color: var(--highlight-color);
+}
+
+#hero .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--link-hover-color);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+
+/* Section 公共样式 */
+section {
+    padding: 60px 0;
+    margin-top: 60px; /* 为固定导航栏留出空间 */
+}
+section:first-of-type {
+    margin-top: 0; /* hero section 不需要上边距 */
+}
+
+
+/* About Section */
+#about .about-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+#about .about-image {
+    flex: 1;
+    max-width: 350px; /* 限制图片宽度 */
+}
+#about .about-image img {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+#about .about-text {
+    flex: 2;
+}
+
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.skill-item {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden; /* 确保图片圆角生效 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.project-card img { /* 如果项目卡片有图片 */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+    flex-grow: 1; /* 让信息部分占据剩余空间 */
+    display: flex;
+    flex-direction: column;
+}
+.project-info h3 {
+    color: var(--primary-color);
+}
+.project-info p {
+    flex-grow: 1; /* 让描述占据更多空间 */
+    margin-bottom: 1rem;
+}
+
+.project-links {
+    margin-top: auto; /* 将链接推到底部 */
+}
+
+.project-button {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-button:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.project-button.code-button {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+.project-button.code-button:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+.project-button i {
+    margin-right: 5px;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+}
+.contact-methods {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* 确保在小屏幕上换行 */
+    gap: 15px;
+}
+.contact-button {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    min-width: 120px; /* 保证按钮宽度一致性 */
+}
+.contact-button:hover {
+    background: var(--link-hover-color);
+    color: #fff;
+    transform: translateY(-3px);
+}
+.contact-button i {
+    margin-right: 8px;
+}
+
+
+/* Footer */
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    nav .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh; /* 假设 header 高度为 8vh */
+        background: var(--header-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        transform: translateX(100%); /* 初始隐藏 */
+        transition: transform 0.5s ease-in;
+        box-shadow: -2px 0px 5px rgba(0,0,0,0.1);
+    }
+
+    nav .nav-links.nav-active {
+        transform: translateX(0%); /* 显示 */
+    }
+
+    nav .nav-links li {
+        margin: 20px 0;
+        opacity: 0; /* 为动画准备 */
+    }
+
+    .burger {
+        display: block; /* 在小屏幕上显示汉堡菜单 */
+    }
+
+    /* 汉堡菜单动画 */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* 为激活的导航链接添加动画 */
+    .nav-active li {
+        opacity: 1;
+        transition: opacity 0.3s ease forwards;
+    }
+    .nav-active li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-active li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-active li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-active li:nth-child(4) { transition-delay: 0.4s; }
+
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    #hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    #about .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    #about .about-image {
+        margin-bottom: 1.5rem;
+        max-width: 250px; /* 移动端小一点的图片 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .skills-grid, .projects-grid {
+        grid-template-columns: 1fr; /* 单列显示 */
+    }
+}
