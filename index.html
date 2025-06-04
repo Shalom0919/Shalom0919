@@ -1,621 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>青年大学生观点调查</title>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的名字 - 个人主页</title>
+    <meta name="description" content="欢迎来到我的个人主页，这里展示了我的项目、技能和经历。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">你的名字</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#contact">联系我</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
 
-    <div id="chart2" style="width: 600px;height:400px;"></div>
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>你好，我是 <span class="highlight">你的名字</span></h1>
+                <p class="subtitle">一位充满热情的 [你的职业/方向，例如：Web开发者 / 学生 / 设计师]</p>
+                <a href="#projects" class="cta-button">查看我的项目</a>
+            </div>
+        </section>
 
-    <div id="chartMajorDistribution" style="width: 700px;height:500px;"></div>
+        <section id="about" class="container">
+            <h2>关于我</h2>
+            <div class="about-content">
+                <div class="about-image">
+                     <img src="images/avatar.jpg" alt="关于我 - 照片">
+                </div>
+                <div class="about-text">
+                    <p>这里写一段关于你自己的介绍。例如：</p>
+                    <p>我是一名对技术充满热情的开发者，专注于 [你的领域]。我喜欢学习新事物，并将其应用于实际项目中，创造有价值的产品。我坚信持续学习和团队合作的重要性。</p>
+                    <p>在我的业余时间，我喜欢 [你的爱好，例如：阅读、徒步、摄影等]。</p>
+                </div>
+            </div>
+        </section>
 
-    <div id="chartDerivativeWorksEthics" style="width: 700px;height:500px;"></div>
+        <section id="skills" class="container">
+            <h2>我的技能</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>编程语言</h3>
+                    <p>HTML, CSS, JavaScript, Python, Java</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-cogs skill-icon"></i>
+                    <h3>框架 & 工具</h3>
+                    <p>React, Vue.js, Node.js, Git, Docker</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>数据库</h3>
+                    <p>MySQL, MongoDB, PostgreSQL</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-feather-alt skill-icon"></i> <h3>其他技能</h3>
+                    <p>UI/UX 设计基础, 项目管理, 敏捷开发</p>
+                </div>
+            </div>
+        </section>
 
-    <div id="chartAnonymityOverall" style="width: 700px;height:500px;"></div>
+        <section id="projects" class="container">
+            <h2>我的项目</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>项目名称 1</h3>
+                        <p>简短描述这个项目是做什么的，使用了哪些技术。</p>
+                        <div class="project-links">
+                            <a href="[项目链接]" target="_blank" class="project-button">查看项目</a>
+                            <a href="[代码仓库链接]" target="_blank" class="project-button code-button"><i class="fab fa-github"></i> 代码</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>项目名称 2</h3>
+                        <p>简短描述这个项目是做什么的，使用了哪些技术。</p>
+                        <div class="project-links">
+                            <a href="[项目链接]" target="_blank" class="project-button">查看项目</a>
+                            <a href="[代码仓库链接]" target="_blank" class="project-button code-button"><i class="fab fa-github"></i> 代码</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
 
-    <div id="chartAnonymityComments" style="width: 700px;height:500px;"></div>
+        <section id="contact" class="container">
+            <h2>联系我</h2>
+            <p>如果你对我的工作感兴趣，或者有任何问题，欢迎随时联系我！</p>
+            <div class="contact-methods">
+                <a href="mailto:你的邮箱地址" class="contact-button"><i class="fas fa-envelope"></i> 邮箱</a>
+                <a href="[你的GitHub链接]" target="_blank" class="contact-button"><i class="fab fa-github"></i> GitHub</a>
+                <a href="[你的LinkedIn链接]" target="_blank" class="contact-button"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+        </section>
+    </main>
 
-    <div id="chartAnonymityBullying" style="width: 700px;height:500px;"></div>
+    <footer>
+        <p>&copy; <span id="currentYear"></span> 你的名字. 保留所有权利.</p>
+    </footer>
 
-    <div id="chartAnonymityReporting" style="width: 700px;height:500px;"></div>
-
-    <div id="chart4" style="width: 600px;height:400px;"></div>
-
-    <div id="chart5" style="width: 600px;height:400px;"></div>
-
-    <div id="chart6" style="width: 600px;height:400px;"></div>
-
-    <div id="chart7" style="width: 600px;height:400px;"></div>
-
-    <div id="chart8" style="width: 600px;height:400px;"></div>
-
-    <div id="chart9" style="width: 600px;height:400px;"></div>
-
-<script type="text/javascript">
-    // Chart 2: 不良内容处理方式
-    var chart2Dom = document.getElementById('chart2');
-    var chart2 = echarts.init(chart2Dom);
-    var chart2Option = {
-        title: {
-            text: '不良内容处理方式',
-            subtext: '面对不良视频/评论的行为选择',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%'
-        },
-        legend: {
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['立即停止观看并举报', '继续观看，但会觉得不适', '觉得无所谓，继续观看', '分享给他人', '其他']
-        },
-        series: [
-            {
-                name: '处理方式分布',
-                type: 'pie',
-                radius: ['40%', '70%'],
-                data: [
-                    {value: 38, name: '立即停止观看并举报'},
-                    {value: 21, name: '继续观看，但会觉得不适'},
-                    {value: 7, name: '觉得无所谓，继续观看'},
-                    {value: 4, name: '分享给他人'},
-                    {value: 1, name: '其他'}
-                ],
-                label: {
-                    formatter: '{b}: {d}%',
-                    position: 'outside'
-                }
-            }
-        ]
-    };
-    chart2.setOption(chart2Option);
-
-    // Chart MajorDistribution: 专业类别分布
-    var chartMajorDistributionDom = document.getElementById('chartMajorDistribution');
-    var chartMajorDistribution = echarts.init(chartMajorDistributionDom);
-    var chartMajorDistributionOption = {
-        title: {
-            text: '专业类别分布',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%' // 显示名称和百分比
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['理工农医类', '文史哲艺类', '经管法教(育)类']
-        },
-        series: [
-            {
-                name: '专业分布',
-                type: 'pie',
-                radius: '60%', // 标准饼图
-                center: ['50%', '60%'],
-                data: [
-                    {value: 62, name: '理工农医类'},
-                    {value: 4, name: '文史哲艺类'},
-                    {value: 4, name: '经管法教(育)类'}
-                ],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                },
-                label: {
-                    show: true,
-                    formatter: '{b}: {d}%' // 在饼图上显示名称和百分比
-                }
-            }
-        ]
-    };
-    chartMajorDistribution.setOption(chartMajorDistributionOption);
-
-    // Chart DerivativeWorksEthics: 二创行为道德判断
-    var chartDerivativeWorksEthicsDom = document.getElementById('chartDerivativeWorksEthics');
-    var chartDerivativeWorksEthics = echarts.init(chartDerivativeWorksEthicsDom);
-    var chartDerivativeWorksEthicsOption = {
-        title: {
-            text: '二创行为道德判断',
-            subtext: '对剪辑拼接作品传播的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%' // 显示名称和百分比
-        },
-        legend: {
-            orient: 'vertical', // 垂直排列图例
-            left: 'left', // 图例靠左
-            top: 'middle', // 图例垂直居中
-            data: ['非常不道德', '比较不道德', '一般', '比较道德', '非常符合道德标准']
-        },
-        series: [
-            {
-                name: '道德判断',
-                type: 'pie',
-                radius: '55%', // 标准饼图
-                center: ['50%', '60%'],
-                data: [
-                    {value: 22, name: '非常不道德'},
-                    {value: 25, name: '比较不道德'},
-                    {value: 14, name: '一般'},
-                    {value: 7, name: '比较道德'},
-                    {value: 2, name: '非常符合道德标准'}
-                ],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                },
-                label: {
-                    show: true,
-                    formatter: '{b}: {d|%.1f}%', // 更简洁的写法，d后面跟管道符和格式化字符串
-                    rich: {
-                        d: {
-                            // 如果需要特别的样式可以定义在这里
-                        }
-                    }
-                }
-            }
-        ]
-    };
-    chartDerivativeWorksEthics.setOption(chartDerivativeWorksEthicsOption);
-
-    // Chart AnonymityOverall: 对网络匿名行为的总体看法
-    var chartAnonymityOverallDom = document.getElementById('chartAnonymityOverall');
-    var chartAnonymityOverall = echarts.init(chartAnonymityOverallDom);
-    var chartAnonymityOverallOption = {
-        title: {
-            text: '对网络匿名行为的总体看法',
-            subtext: '青年大学生观点抽样',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b}: {c}人 ({d}%)'
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['完全支持匿名', '视情况支持', '中立态度', '不太赞同匿名', '强烈反对匿名']
-        },
-        series: [
-            {
-                name: '总体看法',
-                type: 'pie',
-                radius: '60%',
-                center: ['50%', '60%'],
-                data: [
-                    {value: 18, name: '完全支持匿名'},
-                    {value: 42, name: '视情况支持'},
-                    {value: 25, name: '中立态度'},
-                    {value: 10, name: '不太赞同匿名'},
-                    {value: 5, name: '强烈反对匿名'}
-                ],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-    chartAnonymityOverall.setOption(chartAnonymityOverallOption);
-
-    // Chart AnonymityComments: 匿名发表评论的道德性判断
-    var chartAnonymityCommentsDom = document.getElementById('chartAnonymityComments');
-    var chartAnonymityComments = echarts.init(chartAnonymityCommentsDom);
-    var chartAnonymityCommentsOption = {
-        title: {
-            text: '匿名发表评论的道德性判断',
-            subtext: '观点分布',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b}: {c}人 ({d}%)'
-        },
-        legend: {
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['非常符合道德', '比较符合道德', '一般/中立', '比较不道德', '非常不道德']
-        },
-        series: [
-            {
-                name: '匿名评论道德性',
-                type: 'pie',
-                radius: ['40%', '65%'], // 环形图
-                center: ['50%', '55%'],
-                data: [
-                    {value: 28, name: '非常符合道德'},
-                    {value: 35, name: '比较符合道德'},
-                    {value: 22, name: '一般/中立'},
-                    {value: 10, name: '比较不道德'},
-                    {value: 5, name: '非常不道德'}
-                ],
-                label: {
-                    show: true,
-                    formatter: '{b}: {d}%'
-                },
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-    chartAnonymityComments.setOption(chartAnonymityCommentsOption);
-
-    // Chart AnonymityBullying: 匿名进行网络欺凌的道德性判断
-    var chartAnonymityBullyingDom = document.getElementById('chartAnonymityBullying');
-    var chartAnonymityBullying = echarts.init(chartAnonymityBullyingDom);
-    var chartAnonymityBullyingOption = {
-        title: {
-            text: '匿名进行网络欺凌的道德性判断',
-            subtext: '青年大学生对此行为的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b}: {c}人 ({d}%)'
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['非常符合道德', '比较符合道德', '一般/中立', '比较不道德', '非常不道德']
-        },
-        series: [
-            {
-                name: '匿名欺凌道德性',
-                type: 'pie',
-                radius: '60%',
-                center: ['50%', '60%'],
-                data: [
-                    {value: 1, name: '非常符合道德'},
-                    {value: 2, name: '比较符合道德'},
-                    {value: 7, name: '一般/中立'},
-                    {value: 25, name: '比较不道德'},
-                    {value: 65, name: '非常不道德'}
-                ],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                },
-                label: {
-                    show: true,
-                    position: 'outside',
-                    formatter: '{b}\n{d}%'
-                }
-            }
-        ]
-    };
-    chartAnonymityBullying.setOption(chartAnonymityBullyingOption);
-
-    // Chart AnonymityReporting: 匿名举报不当行为的道德性判断
-    var chartAnonymityReportingDom = document.getElementById('chartAnonymityReporting');
-    var chartAnonymityReporting = echarts.init(chartAnonymityReportingDom);
-    var chartAnonymityReportingOption = {
-        title: {
-            text: '匿名举报不当行为的道德性判断',
-            subtext: '对此特定匿名行为的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b}: {c}人 ({d}%)'
-        },
-        legend: {
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['非常支持（道德）', '比较支持（道德）', '中立', '不太支持（不道德）', '反对（不道德）']
-        },
-        series: [
-            {
-                name: '匿名举报道德性',
-                type: 'pie',
-                radius: ['35%', '70%'], // 环形图
-                center: ['50%', '55%'],
-                avoidLabelOverlap: true,
-                itemStyle: {
-                    borderRadius: 10,
-                    borderColor: '#fff',
-                    borderWidth: 2
-                },
-                label: {
-                    show: false,
-                    position: 'center'
-                },
-                emphasis: {
-                    label: {
-                        show: true,
-                        fontSize: '20',
-                        fontWeight: 'bold',
-                        formatter: '{b}\n{d}%'
-                    }
-                },
-                labelLine: {
-                    show: false
-                },
-                data: [
-                    {value: 60, name: '非常支持（道德）'},
-                    {value: 25, name: '比较支持（道德）'},
-                    {value: 10, name: '中立'},
-                    {value: 3, name: '不太支持（不道德）'},
-                    {value: 2, name: '反对（不道德）'}
-                ]
-            }
-        ]
-    };
-    chartAnonymityReporting.setOption(chartAnonymityReportingOption);
-
-    // Chart 4: 盗版视频道德判断
-    var chart4Dom = document.getElementById('chart4');
-    var chart4 = echarts.init(chart4Dom);
-    var chart4Option = {
-        title: {
-            text: '盗版视频道德判断',
-            subtext: '对上传/下载未经授权视频的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%'
-        },
-        legend: { // Added legend for consistency and clarity
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['非常不道德', '比较不道德', '一般', '比较道德', '非常符合道德标准']
-        },
-        series: [
-            {
-                name: '道德判断',
-                type: 'pie',
-                radius: ['30%', '60%'],
-                data: [
-                    {value: 45, name: '非常不道德'},
-                    {value: 15, name: '比较不道德'},
-                    {value: 6, name: '一般'},
-                    {value: 2, name: '比较道德'},
-                    {value: 0, name: '非常符合道德标准'}
-                ],
-                label: {
-                    show: function(params) { return params.value !== 0; }, // 隐藏0值标签
-                    formatter: '{b}: {d}%' // Added formatter for consistency
-                }
-            }
-        ]
-    };
-    chart4.setOption(chart4Option);
-
-    // Chart 5: 隐私发布道德判断
-    var chart5Dom = document.getElementById('chart5');
-    var chart5 = echarts.init(chart5Dom);
-    var chart5Option = {
-        title: {
-            text: '隐私发布道德判断',
-            subtext: '对未经同意发布聊天记录/录音的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%'
-        },
-        legend: { // Added legend for consistency and clarity
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['非常不道德', '比较不道德', '一般', '比较道德', '非常符合道德标准']
-        },
-        series: [
-            {
-                name: '道德判断',
-                type: 'pie',
-                radius: '58%',
-                data: [
-                    {value: 48, name: '非常不道德'},
-                    {value: 12, name: '比较不道德'},
-                    {value: 6, name: '一般'},
-                    {value: 2, name: '比较道德'},
-                    {value: 2, name: '非常符合道德标准'}
-                ],
-                label: { // Added label for consistency
-                    show: true,
-                    formatter: '{b}: {d}%'
-                }
-            }
-        ]
-    };
-    chart5.setOption(chart5Option);
-
-    // Chart 6: 虚假言论道德判断
-    var chart6Dom = document.getElementById('chart6');
-    var chart6 = echarts.init(chart6Dom);
-    var chart6Option = {
-        title: {
-            text: '虚假言论道德判断',
-            subtext: '对故意发表虚假煽动性言论的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%'
-        },
-        legend: { // Added legend for consistency and clarity
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['非常不道德', '比较不道德', '一般', '比较道德', '非常符合道德标准']
-        },
-        series: [
-            {
-                name: '道德判断',
-                type: 'pie',
-                radius: ['25%', '55%'],
-                data: [
-                    {value: 44, name: '非常不道德'},
-                    {value: 16, name: '比较不道德'},
-                    {value: 6, name: '一般'},
-                    {value: 2, name: '比较道德'},
-                    {value: 2, name: '非常符合道德标准'}
-                ],
-                label: { // Added label for consistency
-                    show: true,
-                    formatter: '{b}: {d}%'
-                }
-            }
-        ]
-    };
-    chart6.setOption(chart6Option);
-
-    // Chart 7: 恶意刷屏道德判断
-    var chart7Dom = document.getElementById('chart7');
-    var chart7 = echarts.init(chart7Dom);
-    var chart7Option = {
-        title: {
-            text: '恶意刷屏道德判断',
-            subtext: '对弹幕/评论区恶意刷屏的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%'
-        },
-        legend: { // Added legend for consistency and clarity
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['非常不道德', '比较不道德', '一般', '比较道德', '非常符合道德标准']
-        },
-        series: [
-            {
-                name: '道德判断',
-                type: 'pie',
-                radius: '60%',
-                data: [
-                    {value: 38, name: '非常不道德'},
-                    {value: 18, name: '比较不道德'},
-                    {value: 10, name: '一般'},
-                    {value: 2, name: '比较道德'},
-                    {value: 2, name: '非常符合道德标准'}
-                ],
-                label: { // Added label for consistency
-                    show: true,
-                    formatter: '{b}: {d}%'
-                }
-            }
-        ]
-    };
-    chart7.setOption(chart7Option);
-
-    // Chart 8: 标题党行为道德判断
-    var chart8Dom = document.getElementById('chart8');
-    var chart8 = echarts.init(chart8Dom);
-    var chart8Option = {
-        title: {
-            text: '标题党行为道德判断',
-            subtext: '对“标题党”行为的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%'
-        },
-        legend: { // Added legend for consistency and clarity
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['非常不道德', '比较不道德', '一般', '比较道德', '非常符合道德标准']
-        },
-        series: [
-            {
-                name: '道德判断',
-                type: 'pie',
-                radius: ['40%', '70%'],
-                data: [
-                    {value: 28, name: '非常不道德'},
-                    {value: 22, name: '比较不道德'},
-                    {value: 14, name: '一般'},
-                    {value: 4, name: '比较道德'},
-                    {value: 2, name: '非常符合道德标准'}
-                ],
-                label: { // Added label for consistency
-                    show: true,
-                    formatter: '{b}: {d}%'
-                }
-            }
-        ]
-    };
-    chart8.setOption(chart8Option);
-
-    // Chart 9: 浏览不健康内容道德判断
-    var chart9Dom = document.getElementById('chart9');
-    var chart9 = echarts.init(chart9Dom);
-    var chart9Option = {
-        title: {
-            text: '浏览不健康内容道德判断',
-            subtext: '对主动浏览不良信息行为的看法',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}: {d}%'
-        },
-        legend: { // Added legend for consistency and clarity
-            orient: 'horizontal',
-            bottom: 10,
-            data: ['非常不道德', '比较不道德', '一般', '比较道德', '非常符合道德标准']
-        },
-        series: [
-            {
-                name: '道德判断',
-                type: 'pie',
-                radius: '55%',
-                data: [
-                    {value: 32, name: '非常不道德'},
-                    {value: 18, name: '比较不道德'},
-                    {value: 16, name: '一般'},
-                    {value: 2, name: '比较道德'},
-                    {value: 2, name: '非常符合道德标准'}
-                ],
-                label: { // Added label for consistency
-                    show: true,
-                    formatter: '{b}: {d}%'
-                }
-            }
-        ]
-    };
-    chart9.setOption(chart9Option);
-
-    // Make charts responsive to window resize
-    window.addEventListener('resize', function() {
-        chart2.resize();
-        chartMajorDistribution.resize();
-        chartDerivativeWorksEthics.resize();
-        chartAnonymityOverall.resize();
-        chartAnonymityComments.resize();
-        chartAnonymityBullying.resize();
-        chartAnonymityReporting.resize();
-        chart4.resize();
-        chart5.resize();
-        chart6.resize();
-        chart7.resize();
-        chart8.resize();
-        chart9.resize();
-    });
-
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
