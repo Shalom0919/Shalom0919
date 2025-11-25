@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章查看器</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="../index.html">Shalom</a></div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article id="post-content">加载文章…</article>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Shalom</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        function getQueryParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+
+        const file = getQueryParam('file');
+        const container = document.getElementById('post-content');
+        if (!file) {
+            container.innerText = '未指定文章文件。';
+        } else {
+            fetch(file)
+                .then(res => {
+                    if (!res.ok) throw new Error('网络错误: ' + res.status);
+                    return res.text();
+                })
+                .then(md => {
+                    container.innerHTML = marked.parse(md);
+                    const h1 = container.querySelector('h1');
+                    if (h1) document.title = h1.innerText + ' — Shalom';
+                })
+                .catch(err => {
+                    console.error(err);
+                    container.innerText = '无法加载文章。';
+                });
+        }
+    </script>
+</body>
+</html>
