@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {
+      "title": "示例文章：我的第一篇博文",
+      "date": "2025-11-25",
+      "url": "posts/viewer.html?file=posts/2025-11-25-new-post.md",
+      "excerpt": "发布于 2025-11-25"
+    }
+  ]
+}
