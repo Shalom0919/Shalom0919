@@ -17,6 +17,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#projects">Project</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -75,6 +76,34 @@
                 </div>
             </div>
         </section>
+                <section id="blog" class="container">
+                        <h2>Blog</h2>
+                        <div id="posts-container" class="posts-list">
+                                <p>加载文章列表…</p>
+                        </div>
+                        <script>
+                                // 从 posts/posts.json 加载文章列表并渲染
+                                fetch('posts/posts.json')
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        const container = document.getElementById('posts-container');
+                                        container.innerHTML = '';
+                                        data.posts.forEach(p => {
+                                            const article = document.createElement('article');
+                                            article.className = 'post-item';
+                                            article.innerHTML = `
+                                                <h3><a href="${p.url}">${p.title}</a></h3>
+                                                <p class="post-meta">${p.date} • ${p.excerpt}</p>
+                                            `;
+                                            container.appendChild(article);
+                                        });
+                                    })
+                                    .catch(err => {
+                                        console.error(err);
+                                        document.getElementById('posts-container').innerHTML = '<p>无法加载文章列表。</p>';
+                                    });
+                        </script>
+                </section>
 
         <section id="projects" class="container">
             <h2>Project</h2>
