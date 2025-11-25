@@ -136,7 +136,8 @@ nav .nav-links a.active { /* 可以用 JS 添加 active 类 */
 
 /* Hero Section */
 #hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080.png?text=Hero+Background+Image') no-repeat center center/cover; /* 替换为你的背景图 */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), center center/cover no-repeat;
+    background-attachment: fixed;
     color: #fff;
     height: 100vh; /* 全屏高度 */
     display: flex;
@@ -146,6 +147,7 @@ nav .nav-links a.active { /* 可以用 JS 添加 active 类 */
     text-align: center;
     padding: 0 20px;
     margin-top: 0; /* 覆盖 section 的默认 margin-top */
+    transition: background-image 0.5s ease; /* 平滑过渡背景图 */
 }
 
 #hero .avatar {

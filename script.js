@@ -5,6 +5,52 @@ document.addEventListener('DOMContentLoaded', () => {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
+    // 加载随机动漫壁纸
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+        // 使用多个随机壁纸 API 源以提高可靠性
+        const wallpaperAPIs = [
+            'https://api.imlazy.ink/GetRandomPic?sort=pixiv',  // Pixiv 风格
+            'https://api.moe.jitsu/random',                     // 备用
+            'https://www.loliapi.com/acg/pe',                   // 二次元
+        ];
+
+        function loadWallpaper() {
+            const randomAPI = wallpaperAPIs[Math.floor(Math.random() * wallpaperAPIs.length)];
+            
+            fetch(randomAPI, { method: 'GET' })
+                .then(res => {
+                    // 根据不同 API 处理响应
+                    if (randomAPI.includes('imlazy')) {
+                        return res.blob().then(blob => URL.createObjectURL(blob));
+                    } else if (randomAPI.includes('moe.jitsu')) {
+                        return res.json().then(data => data.url || data.img);
+                    } else {
+                        return res.blob().then(blob => URL.createObjectURL(blob));
+                    }
+                })
+                .then(imageUrl => {
+                    if (imageUrl) {
+                        heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${imageUrl}')`;
+                    }
+                })
+                .catch(err => {
+                    console.warn('Failed to load wallpaper from ' + randomAPI, err);
+                    // 如果当前 API 失败，尝试下一个
+                    const nextAPI = wallpaperAPIs.find(api => api !== randomAPI);
+                    if (nextAPI) {
+                        const tempAPIs = wallpaperAPIs;
+                        wallpaperAPIs.length = 0;
+                        wallpaperAPIs.push(nextAPI);
+                        loadWallpaper();
+                        wallpaperAPIs.push(...tempAPIs);
+                    }
+                });
+        }
+
+        loadWallpaper();
+    }
+
     // 移动端导航栏汉堡菜单
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
