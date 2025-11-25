@@ -33,7 +33,14 @@
         if (!file) {
             container.innerText = '未指定文章文件。';
         } else {
-            fetch(file)
+            // 处理相对路径：如果文件以 posts/ 开头，则相对于站点根目录
+            let fetchUrl = file;
+            if (file.startsWith('posts/')) {
+                // 当前路径是 /Shalom0919/posts/viewer.html，需要回到站点根
+                fetchUrl = '../' + file;
+            }
+            
+            fetch(fetchUrl)
                 .then(res => {
                     if (!res.ok) throw new Error('网络错误: ' + res.status);
                     return res.text();
@@ -45,7 +52,7 @@
                 })
                 .catch(err => {
                     console.error(err);
-                    container.innerText = '无法加载文章。';
+                    container.innerText = '无法加载文章。错误: ' + err.message;
                 });
         }
     </script>
