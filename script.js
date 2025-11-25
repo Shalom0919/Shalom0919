@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
     const navLinkItems = document.querySelectorAll('.nav-links li');
+    const header = document.querySelector('header');
 
     if (burger && navLinks) {
         burger.addEventListener('click', () => {
@@ -39,6 +40,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinkItems.forEach(link => link.style.animation = '');
             }
         });
+    });
+
+    // 自动隐藏导航栏：滚动时隐藏，停止滚动时显示
+    let lastScrollTop = 0;
+    let scrollTimeout;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        // 向下滚动隐藏导航栏，向上滚动显示导航栏
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // 向下滚动
+            if (header) header.classList.add('hidden');
+        } else {
+            // 向上滚动或接近顶部
+            if (header) header.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // 防止负值
+
+        // 清除之前的超时计时器，重新设置
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            // 如果用户停止滚动，显示导航栏
+            if (header) header.classList.remove('hidden');
+        }, 1500); // 1.5 秒后显示导航栏
     });
 
     // (可选) 导航栏滚动时活动状态 (简单版本，精确匹配请用 Intersection Observer)

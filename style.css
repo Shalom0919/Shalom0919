@@ -75,6 +75,11 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* 平滑隐藏/显示 */
+}
+
+header.hidden {
+    transform: translateY(-100%); /* 向上隐藏 */
 }
 
 nav {
@@ -351,6 +356,120 @@ footer {
     text-align: center;
     padding: 2rem 0;
     margin-top: 2rem;
+}
+
+/* 代码块样式 */
+pre, code {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+pre {
+    padding: 15px;
+    overflow-x: auto;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+
+code {
+    padding: 2px 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Highlight.js 主题样式 */
+.hljs {
+    background-color: #282c34;
+    color: #abb2bf;
+    font-family: 'Courier New', monospace;
+    border-radius: 4px;
+}
+
+.hljs-attr, .hljs-attribute {
+    color: #e06c75;
+}
+
+.hljs-string {
+    color: #98c379;
+}
+
+.hljs-number {
+    color: #d19a66;
+}
+
+.hljs-literal {
+    color: #56b6c2;
+}
+
+.hljs-title {
+    color: #61afef;
+}
+
+.hljs-section {
+    color: #e06c75;
+}
+
+.hljs-keyword {
+    color: #c678dd;
+}
+
+.hljs-comment {
+    color: #5c6370;
+    font-style: italic;
+}
+
+pre code.hljs {
+    background-color: #282c34 !important;
+    color: #abb2bf !important;
+}
+
+/* 文章容器样式 */
+article {
+    line-height: 1.8;
+    color: #333;
+}
+
+article h1 {
+    font-size: 2.2rem;
+    margin: 2rem 0 1rem 0;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+article h2 {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1rem 0;
+    text-align: left;
+    padding-top: 0;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+article h3 {
+    font-size: 1.3rem;
+    margin: 1.2rem 0 0.8rem 0;
+    text-align: left;
+}
+
+article p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+article ol, article ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+article li {
+    margin-bottom: 0.5rem;
 }
 
 /* 响应式设计 */
